@@ -103,9 +103,11 @@ export function getExplorerAddress(): string | null {
   if (settings === null) {
     return null;
   } else if (settings.net === 'MAIN') {
-    return 'explorer.ont.io';
+    return '121.41.17.61:25771';
+    // return 'explorer.ont.io';
   } else if (settings.net === 'TEST') {
-    return 'polarisexplorer.ont.io';
+    return '121.41.17.61:25771';
+    // return 'polarisexplorer.ont.io';
   } else {
     return null;
   }

@@ -25,7 +25,8 @@ import {
   SettingsState,
 } from '../../redux/settings';
 
-const defaultState: SettingsState = { address: 'dapp1.ont.io', ssl: false, net: 'MAIN', tokens: [], trustedScs: [] };
+const defaultState: SettingsState = { address: '121.41.17.61:25771', ssl: false, net: 'MAIN', tokens: [], trustedScs: [] };
+// const defaultState: SettingsState = { address: 'dapp1.ont.io', ssl: false, net: 'MAIN', tokens: [], trustedScs: [] };
 export const settingsReducer: Reducer<SettingsState> = (state = defaultState, action) => {
   switch (action.type) {
     case SET_SETTINGS:
