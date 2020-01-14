@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { Parameter, VmType } from '@ont-dev/ontology-dapi';
+import { Parameter, VmType } from 'tesra-dapi';
 import { AssetType } from './runtime';
 
 export type ErrorCode = 'TIMEOUT' | 'WRTSG_PASSWORD' | 'CANCELED' | 'OTHER';

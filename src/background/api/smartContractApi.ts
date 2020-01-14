@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { Parameter } from '@ont-dev/ontology-dapi';
+import { Parameter } from 'tesra-dapi';
 import { Crypto, Parameter as Param, ParameterType, Transaction, TransactionBuilder, utils } from 'tesrasdk-ts';
 import { decryptAccount, getAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';

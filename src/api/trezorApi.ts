@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
-// import * as Trezor from '@ont-community/ontology-ts-sdk-trezor';
+// import * as Trezor from 'tesrasdk-ts-trezor';
 import { get } from 'lodash';
 import { TWallet } from 'tesrasdk-ts';
 import { getAccount } from './accountApi';

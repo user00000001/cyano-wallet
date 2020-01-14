@@ -1,6 +1,6 @@
 import Address = Crypto.Address;
-import { Balance, Block, MerkleProof, Network, NetworkApi, Transaction } from '@ont-dev/ontology-dapi';
 import { decodeAmount } from 'src/popup/utils/number';
+import { Balance, Block, MerkleProof, Network, NetworkApi, Transaction } from 'tesra-dapi';
 import { Crypto } from 'tesrasdk-ts';
 import { getTokenBalance } from '../api/tokenApi';
 import { getClient } from '../network';
@@ -95,7 +95,7 @@ export const networkApi: NetworkApi = {
 
     async getUnboundTsg({ address }) {
         const client = getClient();
-        const response = await client.getUnboundong(new Address(address));
+        const response = await client.getUnboundtsg(new Address(address));
         return String(response.Result);
     },
     async getContract({ hash }) {

@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
-import * as Ledger from '@ont-community/ontology-ts-sdk-ledger';
 import { Account, TWallet } from 'tesrasdk-ts';
+import * as Ledger from 'tesrasdk-ts-ledger';
 import { v4 as uuid } from 'uuid';
 import { getWallet } from '../../api/authApi';
 

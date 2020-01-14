@@ -1,4 +1,4 @@
-import HDKey from '@ont-community/hdkey-secp256r1';
+import HDKey from 'hdkey-secp256r1';
 import { decryptAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';
 import { StateChannelLoginRequest } from '../../redux/transactionRequests';

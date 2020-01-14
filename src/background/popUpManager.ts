@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { MethodType, Rpc } from '@ont-dev/ontology-dapi';
 import { decryptDefaultIdentity } from 'src/api/identityApi';
+import { MethodType, Rpc } from 'tesra-dapi';
 import { Identity } from 'tesrasdk-ts';
 import { browser } from 'webextension-polyfill-ts';
 import { decryptAccount } from '../api/accountApi';

@@ -1,4 +1,4 @@
-import { Signature } from '@ont-dev/ontology-dapi';
+import { Signature } from 'tesra-dapi';
 import { Crypto, utils } from 'tesrasdk-ts';
 import { decryptAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';

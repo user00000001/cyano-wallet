@@ -1,3 +1,3 @@
-import { provider } from '@ont-dev/ontology-dapi';
+import { provider } from 'tesra-dapi';
 
 provider.registerContentProxy({});

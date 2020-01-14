@@ -19,12 +19,12 @@ import 'babel-polyfill';
 
 import bugsnag from '@bugsnag/js';
 import bugsnagReact from '@bugsnag/plugin-react';
-import * as Ledger from '@ont-community/ontology-ts-sdk-ledger';
-// import * as Trezor from '@ont-community/ontology-ts-sdk-trezor';
+// import * as Trezor from 'tesrasdk-ts-trezor';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
 import { Crypto } from 'tesrasdk-ts';
+import * as Ledger from 'tesrasdk-ts-ledger';
 import { browser } from 'webextension-polyfill-ts';
 import './global.css';
 

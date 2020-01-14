@@ -1,4 +1,4 @@
-import { IdentityApi, TstIdDDO } from '@ont-dev/ontology-dapi';
+import { IdentityApi, TstIdDDO } from 'tesra-dapi';
 import { DDO, TstidContract } from 'tesrasdk-ts';
 import { getIdentity } from '../../api/identityApi';
 import { getClient } from '../network';

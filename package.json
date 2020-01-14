@@ -1,6 +1,6 @@
 {
   "name": "tesra-wallet",
-  "version": "0.7.16",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "lint": "tslint -p .",
@@ -12,8 +12,6 @@
   "dependencies": {
     "@bugsnag/js": "^5.1.0",
     "@bugsnag/plugin-react": "^5.1.0",
-    "@ont-community/ontology-ts-sdk-ledger": "^1.0.8",
-    "@ont-dev/ontology-dapi": "^0.4.9",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
@@ -27,7 +25,7 @@
     "file-saver": "^1.3.8",
     "final-form": "^4.8.1",
     "fs-extra": "3.0.1",
-    "hdkey-secp256r1": "http://113.204.194.92:9000/independent/hdkey-secp256r1.git",
+    "hdkey-secp256r1": "git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git",
     "lodash": "^4.17.10",
     "long": "^4.0.0",
     "object-assign": "4.1.1",
@@ -55,11 +53,14 @@
     "resolve": "1.6.0",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.81.1",
+    "tesra-dapi": "git+http://113.204.194.92:9000/independent/tesra-dapi.git",
     "tesrasdk-ts": "git+http://113.204.194.92:9000/independent/tesrasdk-ts.git",
+    "tesrasdk-ts-ledger": "http://113.204.194.92:9000/independent/tesrasdk-ts-ledger.git",
     "uuid": "^3.2.1",
     "webextension-polyfill-ts": "^0.8.7",
     "websocket-as-promised": "^0.8.0",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "window-post-message-proxy": "git+http://113.204.194.92:9000/independent/window-post-message-proxy.git"
   },
   "devDependencies": {
     "@types/file-saver": "^1.3.0",
@@ -142,7 +143,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/zamborsky/Work/ontology-plugin/tsconfig.test.json"
+        "tsConfigFile": "/Users/user00000001/Work/tesra-plugin/tsconfig.test.json"
       }
     }
   },

@@ -30,7 +30,7 @@ const mapStateToProps = (state: GlobalState) => ({
 const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps) => (
   reduxConnect(mapStateToProps, dummy, (reduxProps) => (
     withProps({
-      ontId: getIdentity(reduxProps.walletEncoded!)!
+      tstId: getIdentity(reduxProps.walletEncoded!)!
     }, (injectedProps) => (
       <Component {...injectedProps} />
     ))

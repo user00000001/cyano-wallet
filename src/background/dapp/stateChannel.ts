@@ -1,4 +1,4 @@
-import { Signature, StateChannelApi } from '@ont-dev/ontology-dapi';
+import { Signature, StateChannelApi } from 'tesra-dapi';
 import { getRequestsManager } from '../requestsManager';
 
 

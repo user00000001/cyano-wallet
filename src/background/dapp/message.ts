@@ -1,4 +1,4 @@
-import { MessageApi, Signature } from '@ont-dev/ontology-dapi';
+import { MessageApi, Signature } from 'tesra-dapi';
 import { messageVerify } from '../api/messageApi';
 import { getRequestsManager } from '../requestsManager';
 

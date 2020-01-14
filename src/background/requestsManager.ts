@@ -1,6 +1,6 @@
-import { Parameter, VmType } from '@ont-dev/ontology-dapi';
 import { getWallet } from 'src/api/authApi';
 import { hasIdentity } from 'src/api/identityApi';
+import { Parameter, VmType } from 'tesra-dapi';
 import { v4 as uuid } from 'uuid';
 import { Deferred } from '../deffered';
 import Actions from '../redux/actions';

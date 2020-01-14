@@ -29,9 +29,9 @@ import { convertAmountFromStr, convertAmountToBN, convertAmountToStr } from '../
 import { InitialValues, Props, SendView } from './sendView';
 
 const mapStateToProps = (state: GlobalState) => ({
+  tokens: state.settings.tokens,
   tsgAmount: state.runtime.tsgAmount,
-  tstAmount: state.runtime.tstAmount,
-  tokens: state.settings.tokens
+  tstAmount: state.runtime.tstAmount
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
