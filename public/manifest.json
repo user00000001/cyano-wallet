@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Cyano wallet",
-  "author": "Matus Zamborsky <zamborsky@gmail.com>",
-  "description": "Cyano wallet - an Ontology wallet",
+  "name": "Tesra wallet",
+  "author": "user00000001 <jaybrownjyb@gmail.com>",
+  "description": "Tesra wallet - an Tesra wallet",
   "version": "0.7.16",
 
   "browser_action": {

@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import { Crypto } from 'ontology-ts-sdk';
+import { Crypto } from 'tesrasdk-ts';
 import Address = Crypto.Address;
 import PrivateKey = Crypto.PrivateKey;
 import { constructNepTransfer, signTransaction } from '../src/background/api/neoApi';

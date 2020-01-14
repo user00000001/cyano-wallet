@@ -1,5 +1,5 @@
-import { IdentityApi, OntIdDDO } from '@ont-dev/ontology-dapi';
-import { DDO, OntidContract } from 'ontology-ts-sdk';
+import { IdentityApi, TstIdDDO } from '@ont-dev/ontology-dapi';
+import { DDO, TstidContract } from 'tesrasdk-ts';
 import { getIdentity } from '../../api/identityApi';
 import { getClient } from '../network';
 import { getStore } from '../redux';
@@ -21,8 +21,8 @@ export const identityApi: IdentityApi = {
     }
   },
 
-  getDDO({ identity }): Promise<OntIdDDO> {
-    const tx = OntidContract.buildGetDDOTx(identity);
+  getDDO({ identity }): Promise<TstIdDDO> {
+    const tx = TstidContract.buildGetDDOTx(identity);
     const rest = getClient();
 
     return rest.sendRawTransaction(tx.serialize(), true).then((res) => {

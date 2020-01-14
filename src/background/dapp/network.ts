@@ -1,7 +1,7 @@
 import Address = Crypto.Address;
 import { Balance, Block, MerkleProof, Network, NetworkApi, Transaction } from '@ont-dev/ontology-dapi';
-import { Crypto } from 'ontology-ts-sdk';
 import { decodeAmount } from 'src/popup/utils/number';
+import { Crypto } from 'tesrasdk-ts';
 import { getTokenBalance } from '../api/tokenApi';
 import { getClient } from '../network';
 import { getStore } from '../redux';
@@ -37,8 +37,8 @@ export const networkApi: NetworkApi = {
         const response = await client.getBalance(new Address(address));
 
         const balance: Balance = {
-            ONG: decodeAmount(response.Result.ong, 9),
-            ONT: response.Result.ont,     
+            TSG: decodeAmount(response.Result.tsg, 9),
+            TST: response.Result.tst,     
         };
 
         const addr = new Address(address);
@@ -93,7 +93,7 @@ export const networkApi: NetworkApi = {
         return response.Result;
     },
 
-    async getUnboundOng({ address }) {
+    async getUnboundTsg({ address }) {
         const client = getClient();
         const response = await client.getUnboundong(new Address(address));
         return String(response.Result);
@@ -129,9 +129,9 @@ export const networkApi: NetworkApi = {
         const response = await client.getGasPrice();
         return response.Result;
     },
-    async getGrantOng({ address }) {
+    async getGrantTsg({ address }) {
         const client = getClient();
-        const response = await client.getGrantOng(new Address(address));
+        const response = await client.getGrantTsg(new Address(address));
         return String(response.Result);
     },
     async getMempoolTxCount() {

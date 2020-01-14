@@ -1,26 +1,26 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { TokenAmountState } from 'src/redux/runtime';
 import { getAddress } from '../api/accountApi';
 import Actions from '../redux/actions';
 import { GlobalStore } from '../redux/state';
 import { getTransferList } from './api/explorerApi';
-import { getBalance, getUnboundOng } from './api/runtimeApi';
+import { getBalance, getUnboundTsg } from './api/runtimeApi';
 import { getTokenBalanceOwn } from './api/tokenApi';
 
 export async function refreshBalance(store: GlobalStore) {
@@ -31,7 +31,7 @@ export async function refreshBalance(store: GlobalStore) {
   if (walletEncoded !== null) {
     try {
       const balance = await getBalance();
-      const unboundOng = await getUnboundOng();
+      const unboundTsg = await getUnboundTsg();
 
       const tokenBalances: TokenAmountState[] = [];
 
@@ -45,7 +45,7 @@ export async function refreshBalance(store: GlobalStore) {
         }
       }
 
-      store.dispatch(Actions.runtime.setBalance(balance.ong, balance.ont, unboundOng, 0, tokenBalances));
+      store.dispatch(Actions.runtime.setBalance(balance.tsg, balance.tst, unboundTsg, 0, tokenBalances));
 
       const address = getAddress(walletEncoded);
 

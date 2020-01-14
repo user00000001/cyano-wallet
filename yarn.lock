@@ -366,15 +366,6 @@
     elliptic "^6.4.0"
     safe-buffer "^5.1.1"
 
-"@ont-community/hdkey-secp256r1@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@ont-community/hdkey-secp256r1/-/hdkey-secp256r1-1.0.1.tgz#81840bd0ae3442baed490eac204646bb845e9f89"
-  integrity sha512-DMWQkLqvmuTXHqxdihP7BBZR1LGbFzVbkZK/iDT3aGrxOnY8AsvXZSGw/3WsJMjpSvKbfhPm3Jpf2JiyuY2SwQ==
-  dependencies:
-    coinstring "^2.0.0"
-    elliptic "^6.4.0"
-    safe-buffer "^5.1.1"
-
 "@ont-community/html5-websocket@^2.0.2":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@ont-community/html5-websocket/-/html5-websocket-2.0.3.tgz#702419116217ec749c6eea18b234bd3d600b0c5c"
@@ -4381,6 +4372,22 @@ hdkey-secp256r1@^1.1.0:
     bs58check "^2.1.2"
     elliptic "^6.4.1"
 
+"hdkey-secp256r1@git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git":
+  version "0.0.1"
+  resolved "git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git#0ecfa447d61b15badc1deadf28d5c5e81acf216c"
+  dependencies:
+    coinstring "^2.0.0"
+    elliptic "^6.4.0"
+    safe-buffer "^5.1.1"
+
+"hdkey-secp256r1@http://113.204.194.92:9000/independent/hdkey-secp256r1.git":
+  version "0.0.1"
+  resolved "http://113.204.194.92:9000/independent/hdkey-secp256r1.git#0ecfa447d61b15badc1deadf28d5c5e81acf216c"
+  dependencies:
+    coinstring "^2.0.0"
+    elliptic "^6.4.0"
+    safe-buffer "^5.1.1"
+
 he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
@@ -4470,6 +4477,12 @@ html-webpack-plugin@2.29.0:
     lodash "^4.17.3"
     pretty-error "^2.0.2"
     toposort "^1.0.0"
+
+"html5-websocket@git+http://113.204.194.92:9000/independent/html5-websocket.git":
+  version "0.0.1"
+  resolved "git+http://113.204.194.92:9000/independent/html5-websocket.git#2f5b08a1d9dd57ac76a94b07540b604b401e0ef7"
+  dependencies:
+    ws "^3.1.0"
 
 htmlparser2@~3.3.0:
   version "3.3.0"
@@ -6719,36 +6732,6 @@ ontology-ts-sdk@^0.9.4:
     ecurve "^1.0.6"
     elliptic "^6.4.0"
     js-sha3 "^0.7.0"
-    promise-timeout "^1.3.0"
-    scrypt-async "^2.0.0"
-    secure-random "^1.1.1"
-    sm.js "0.1.7"
-    uuid "^3.2.1"
-    websocket-as-promised "^0.8.0"
-    wif "^2.0.6"
-    ws "^4.1.0"
-
-ontology-ts-sdk@^1.0.24:
-  version "1.0.24"
-  resolved "https://registry.yarnpkg.com/ontology-ts-sdk/-/ontology-ts-sdk-1.0.24.tgz#5fd403ef9aac3931d54a25e4a323c1e500c42fca"
-  integrity sha512-jk+B2QbbE3uYgBvCkdwcJodHJYkxfmb1Km6RsxK2yM6E6krp7h7y01WCvLuEk2bgWTayz/jIg7AizeUqeRVlyg==
-  dependencies:
-    "@ont-community/hdkey-secp256r1" "^1.0.1"
-    "@ont-community/html5-websocket" "^2.0.2"
-    axios "^0.19.0"
-    babel-polyfill "^6.26.0"
-    base-58 "^0.0.1"
-    base64-url "^2.2.0"
-    bignumber.js "^7.2.1"
-    bip39 "^2.5.0"
-    crypto-js "^3.1.9-1"
-    ecdsa "^0.7.0"
-    ecurve "^1.0.6"
-    elliptic "^6.4.0"
-    js-sha3 "^0.7.0"
-    long "^4.0.0"
-    milagro-crypto-js "^3.3.0"
-    pkcs7 "^1.0.2"
     promise-timeout "^1.3.0"
     scrypt-async "^2.0.0"
     secure-random "^1.1.1"
@@ -9152,6 +9135,36 @@ term-size@^1.2.0:
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"
   dependencies:
     execa "^0.7.0"
+
+"tesrasdk-ts@git+http://113.204.194.92:9000/independent/tesrasdk-ts.git":
+  version "0.0.1"
+  resolved "git+http://113.204.194.92:9000/independent/tesrasdk-ts.git#0648416a6ff4358a9e3ec70fc2d847bae63b2030"
+  dependencies:
+    axios "^0.19.0"
+    babel-polyfill "^6.26.0"
+    base-58 "^0.0.1"
+    base64-url "^2.2.0"
+    bignumber.js "^7.2.1"
+    bip39 "^2.5.0"
+    coinstring "^2.0.0"
+    crypto-js "^3.1.9-1"
+    ecdsa "^0.7.0"
+    ecurve "^1.0.6"
+    elliptic "^6.4.0"
+    hdkey-secp256r1 "git+http://113.204.194.92:9000/independent/hdkey-secp256r1.git"
+    html5-websocket "git+http://113.204.194.92:9000/independent/html5-websocket.git"
+    js-sha3 "^0.7.0"
+    long "^4.0.0"
+    milagro-crypto-js "^3.3.0"
+    pkcs7 "^1.0.2"
+    promise-timeout "^1.3.0"
+    scrypt-async "^2.0.0"
+    secure-random "^1.1.1"
+    sm.js "0.1.7"
+    uuid "^3.2.1"
+    websocket-as-promised "^0.8.0"
+    wif "^2.0.6"
+    ws "^4.1.0"
 
 test-exclude@^4.2.1:
   version "4.2.1"

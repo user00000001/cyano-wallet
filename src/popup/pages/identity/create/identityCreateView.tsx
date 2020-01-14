@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import * as React from 'react';
 import { Field, Form } from 'react-final-form';
@@ -25,7 +25,7 @@ export interface Props {
   handleSubmit: (values: object) => Promise<void>;
   handleCancel: () => void;
   loading: boolean;
-  haveEnoughOng: boolean;
+  haveEnoughTsg: boolean;
 }
 
 export const IdentityCreateView: React.SFC<Props> = (props) => (
@@ -33,12 +33,12 @@ export const IdentityCreateView: React.SFC<Props> = (props) => (
     <View orientation="column" className="part gradient">
       <LogoHeader title="New identity" />
       <View content={true} className="spread-around">
-        <View>Enter your passphrase for identity encryption. Registration will cost you 0.01 ONG.</View>
+        <View>Enter your passphrase for identity encryption. Registration will cost you 0.01 TSG.</View>
       </View>
     </View>
     <View orientation="column" fluid={true} content={true} className="spread-around">
-      {!props.haveEnoughOng ? (
-        <Message>You do not have enough ONG (0.01 ONG required).</Message>
+      {!props.haveEnoughTsg ? (
+        <Message>You do not have enough TSG (0.01 TSG required).</Message>
       ) : (null)}
       <Form
         onSubmit={props.handleSubmit}
@@ -57,7 +57,7 @@ export const IdentityCreateView: React.SFC<Props> = (props) => (
                     icon="key"
                     type="password"
                     error={t.meta.touched && t.meta.invalid}
-                    disabled={props.loading || !props.haveEnoughOng}
+                    disabled={props.loading || !props.haveEnoughTsg}
                   />
                 )} />
             </View>
@@ -73,7 +73,7 @@ export const IdentityCreateView: React.SFC<Props> = (props) => (
                     icon="key"
                     type="password"
                     error={t.meta.touched && t.meta.invalid}
-                    disabled={props.loading || !props.haveEnoughOng}
+                    disabled={props.loading || !props.haveEnoughTsg}
                   />
                 )} />
             </View>
@@ -92,7 +92,7 @@ export const IdentityCreateView: React.SFC<Props> = (props) => (
             </View>
             <Filler />
             <View className="buttons">
-              <Button disabled={props.loading || !props.haveEnoughOng} loading={props.loading}>Create</Button>
+              <Button disabled={props.loading || !props.haveEnoughTsg} loading={props.loading}>Create</Button>
               <Button disabled={props.loading} onClick={props.handleCancel}>Cancel</Button>
             </View>
           </SemanticForm>

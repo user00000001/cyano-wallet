@@ -1,4 +1,4 @@
-import { AbiInfo, Crypto, NeoCore, Parameter, ParameterType, utils } from 'ontology-ts-sdk';
+import { AbiInfo, Crypto, NeoCore, Parameter, ParameterType, utils } from 'tesrasdk-ts';
 import { decryptAccount, getAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';
 import { SwapRequest } from '../../redux/transactionRequests';
@@ -9,7 +9,7 @@ import Address = Crypto.Address;
 import PrivateKey = Crypto.PrivateKey;
 import SignatureScheme = Crypto.SignatureScheme;
 
-const ontContract = 'ceab719b8baa2310f232ee0d277c061704541cfb';
+const tstContract = 'ceab719b8baa2310f232ee0d277c061704541cfb';
 const swapAddress = 'AFmseVrdL9f9oyCzZefL9tG6UbvhPbdYzM';
 
 // tslint:disable-next-line:max-line-length
@@ -25,7 +25,7 @@ export async function getNepBalance() {
   if (nodeAddress !== null) {
     const response: any | undefined = await NeoCore.NeoRpc.getBalance(
       nodeAddress,
-      new Address(utils.reverseHex(ontContract)),
+      new Address(utils.reverseHex(tstContract)),
       getAccount(wallet).address,
     );
 
@@ -62,7 +62,7 @@ export async function swapNep(request: SwapRequest, password: string) {
 
 export function constructNepTransfer(from: Address, to: Address, amount: number) {
   const abiInfo = AbiInfo.parseJson(NEP5_ABI);
-  const contractAddr = new Address(utils.reverseHex(ontContract));
+  const contractAddr = new Address(utils.reverseHex(tstContract));
 
   const func = abiInfo.getFunction('Transfer');
   func.name = func.name.toLowerCase();

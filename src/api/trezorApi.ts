@@ -1,23 +1,23 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 // import * as Trezor from '@ont-community/ontology-ts-sdk-trezor';
 import { get } from 'lodash';
-import { Wallet } from 'ontology-ts-sdk';
+import { TWallet } from 'tesrasdk-ts';
 import { getAccount } from './accountApi';
 
 export async function isTrezorSupported() {
@@ -27,7 +27,7 @@ export async function isTrezorSupported() {
 
 export async function importTrezorKey(index: number): Promise<{ wallet: string }> {
   throw new Error('Unsupported');
-  // const wallet = Wallet.create(uuid());
+  // const wallet = TWallet.create(uuid());
   // const scrypt = wallet.scrypt;
   // const scryptParams = {
   //   blockSize: scrypt.r,
@@ -40,11 +40,11 @@ export async function importTrezorKey(index: number): Promise<{ wallet: string }
   // const publicKey = privateKey.getPublicKey();
 
   // const identity = Identity.create(privateKey, '', uuid(), scryptParams);
-  // const ontId = identity.ontid;
+  // const tstId = identity.tstId;
 
-  // register the ONT ID on blockchain
+  // register the TST ID on blockchain
   // if (register) {
-  //   const tx = OntidContract.buildRegisterOntidTx(ontId, publicKey, '0', '30000');
+  //   const tx = TstidContract.buildRegisterTstidTx(tstId, publicKey, '0', '30000');
   //   tx.payer = identity.controls[0].address;
 
   //   await TransactionBuilder.signTransactionAsync(tx, privateKey);
@@ -58,7 +58,7 @@ export async function importTrezorKey(index: number): Promise<{ wallet: string }
 
   // wallet.addIdentity(identity);
   // wallet.addAccount(account);
-  // wallet.setDefaultIdentity(identity.ontid);
+  // wallet.setDefaultIdentity(identity.tstid);
   // wallet.setDefaultAccount(account.address.toBase58());
 
   // return {
@@ -66,6 +66,6 @@ export async function importTrezorKey(index: number): Promise<{ wallet: string }
   // };
 }
 
-export function isTrezorKey(wallet: Wallet) {
+export function isTrezorKey(wallet: TWallet) {
   return get(getAccount(wallet).encryptedKey, 'type') === 'TREZOR';
 }

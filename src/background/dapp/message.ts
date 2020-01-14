@@ -2,7 +2,7 @@ import { MessageApi, Signature } from '@ont-dev/ontology-dapi';
 import { messageVerify } from '../api/messageApi';
 import { getRequestsManager } from '../requestsManager';
 
-// const messagePrefix = 'Ontology message:';
+// const messagePrefix = 'Tesra message:';
 
 export const messageApi: MessageApi = {
 

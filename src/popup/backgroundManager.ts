@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { Rpc } from '@ont-dev/ontology-dapi';
 import { History } from 'history';
@@ -46,8 +46,8 @@ class BackgroundManager {
     return this.rpc.call<boolean>('check_identity_password', password);
   }
 
-  public checkOntId(encodedIdentity: string, password: string) {
-    return this.rpc.call<boolean>('check_ont_id', encodedIdentity, password);
+  public checkTstId(encodedIdentity: string, password: string) {
+    return this.rpc.call<boolean>('check_tst_id', encodedIdentity, password);
   }
 
   public getOEP4Token(contract: string) {

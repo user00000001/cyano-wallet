@@ -1,22 +1,22 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import * as Ledger from '@ont-community/ontology-ts-sdk-ledger';
-import { Account, Wallet } from 'ontology-ts-sdk';
+import { Account, TWallet } from 'tesrasdk-ts';
 import { v4 as uuid } from 'uuid';
 import { getWallet } from '../../api/authApi';
 
@@ -24,9 +24,9 @@ export async function isLedgerSupported() {
   return await Ledger.isLedgerSupported();
 }
 
-export async function importLedgerKey(index: number, neo: boolean, wallet: string | Wallet | null) {
+export async function importLedgerKey(index: number, neo: boolean, wallet: string | TWallet | null) {
   if (wallet === null) {
-    wallet = Wallet.create(uuid());
+    wallet = TWallet.create(uuid());
   } else if (typeof wallet === 'string') {
     wallet = getWallet(wallet);
   }

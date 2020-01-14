@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import BigNumber from 'bignumber.js';
 import * as React from 'react';
@@ -24,7 +24,7 @@ import { TokenAmountState } from 'src/redux/runtime';
 import { TokenState } from 'src/redux/settings';
 import { v4 as uuid } from 'uuid';
 import { getAddress } from '../../../api/accountApi';
-import { SwapRequest, TransferRequest, WithdrawOngRequest } from '../../../redux/transactionRequests';
+import { SwapRequest, TransferRequest, WithdrawTsgRequest } from '../../../redux/transactionRequests';
 import { reduxConnect, withProps } from '../../compose';
 import { Actions, GlobalState } from '../../redux';
 import { convertAmountToBN, convertAmountToStr, decodeAmount } from '../../utils/number';
@@ -32,11 +32,11 @@ import { DashboardView, Props } from './dashboardView';
 
 const mapStateToProps = (state: GlobalState) => ({
   nepAmount: state.runtime.nepAmount,
-  ongAmount: state.runtime.ongAmount,
-  ontAmount: state.runtime.ontAmount,
   tokenAmounts: state.runtime.tokenAmounts,
   tokens: state.settings.tokens,
   transfers: state.runtime.transfers,
+  tsgAmount: state.runtime.tsgAmount,
+  tstAmount: state.runtime.tstAmount,
   unboundAmount: state.runtime.unboundAmount,
   walletEncoded: state.wallet.wallet,
 });
@@ -61,7 +61,7 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
           // todo: no type check TransferRequest
           await actions.addRequest({
             amount: 0,
-            asset: 'ONT',
+            asset: 'TST',
             id: requestId,
             recipient: '',
             type: 'transfer',
@@ -92,18 +92,18 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
             await actions.addRequest({
               amount: reduxProps.unboundAmount,
               id: requestId,
-              type: 'withdraw_ong',
-            } as WithdrawOngRequest);
+              type: 'withdraw_tsg',
+            } as WithdrawTsgRequest);
 
             props.history.push('/confirm', { requestId, redirectSucess: '/sendComplete', redirectFail: '/sendFailed' });
           }
         },
         nepAmount: convertAmountToStr(reduxProps.nepAmount, 'NEP'),
-        ongAmount: convertAmountToStr(reduxProps.ongAmount, 'ONG'),
-        ontAmount: convertAmountToStr(reduxProps.ontAmount, 'ONT'),
         ownAddress: getAddress(reduxProps.walletEncoded!),
         tokens: prepareTokenAmounts(reduxProps.tokens, reduxProps.tokenAmounts),
-        unboundAmount: convertAmountToStr(reduxProps.unboundAmount, 'ONG'),
+        tsgAmount: convertAmountToStr(reduxProps.tsgAmount, 'TSG'),
+        tstAmount: convertAmountToStr(reduxProps.tstAmount, 'TST'),
+        unboundAmount: convertAmountToStr(reduxProps.unboundAmount, 'TSG'),
       },
       (injectedProps) => <Component {...injectedProps} />,
     ),

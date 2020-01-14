@@ -1,5 +1,5 @@
 import { Signature } from '@ont-dev/ontology-dapi';
-import { Crypto, utils } from 'ontology-ts-sdk';
+import { Crypto, utils } from 'tesrasdk-ts';
 import { decryptAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';
 import { MessageSignRequest } from '../../redux/transactionRequests';

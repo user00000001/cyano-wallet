@@ -1,18 +1,18 @@
 <h1>Privacy Policy</h1>
 
-<p>Effective date: November 17, 2018</p>
+<p>Effective date: January 1, 2020</p>
 
-<p>Cyano wallet ("us", "we", or "our") operates the Chrome extension "Cyano wallet" with homepage at https://github.com/OntologyCommunityDevelopers/cyano-wallet website (hereinafter referred to as the "Service").</p>
+<p>Tesra wallet ("us", "we", or "our") operates the Chrome extension "Tesra wallet" with homepage at https://github.com/TesraSupernet/tesra-wallet website (hereinafter referred to as the "Service").</p>
 
 <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
-<p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://github.com/OntologyCommunityDevelopers/cyano-wallet</p>
+<p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://github.com/TesraSupernet/tesra-wallet</p>
 
 <h2>Definitions</h2>
 <ul>
     <li>
         <p><strong>Service</strong></p>
-                <p>Service is the Chrome extension "Cyano wallet"</p>
+                <p>Service is the Chrome extension "Tesra wallet"</p>
             </li>
     <li>
         <p><strong>Personal Data</strong></p>
@@ -61,7 +61,7 @@
 
 <h4>Private keys and mnemonic phrases</h4>
 
-<p>The main functionality of our Service is to allow you to access the Ontology blockchain network and to make transactions. For that we requires you to enter your private key or mnemonic phrases used to generate the private key into the Service.</p>
+<p>The main functionality of our Service is to allow you to access the Tesra blockchain network and to make transactions. For that we requires you to enter your private key or mnemonic phrases used to generate the private key into the Service.</p>
 <p><b>Those data (private keys and the mnemonic phases) are never transmited from your computer and we do not collect those data.</b>
 
 <h4>Debug Data</h4>
@@ -69,7 +69,7 @@
 
 <h2>Use of Data</h2>
     
-<p>Cyano wallet uses the collected data for various purposes:</p>    
+<p>Tesra wallet uses the collected data for various purposes:</p>    
 <ul>
     <li>To provide and maintain the Service</li>
     <li>To notify you about changes to our Service</li>
@@ -84,15 +84,15 @@
 <p>Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.</p>
 <p>If you are located outside Czech Republic and choose to provide information to us, please note that we transfer the data, including Personal Data, to Czech Republic and process it there.</p>
 <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
-<p>Cyano wallet will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
+<p>Tesra wallet will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
 
 <h2>Disclosure Of Data</h2>
 
 <h3>Legal Requirements</h3>
-<p>Cyano wallet may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
+<p>Tesra wallet may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
 <ul>
     <li>To comply with a legal obligation</li>
-    <li>To protect and defend the rights or property of Cyano wallet</li>
+    <li>To protect and defend the rights or property of Tesra wallet</li>
     <li>To prevent or investigate possible wrongdoing in connection with the Service</li>
     <li>To protect the personal safety of users of the Service or the public</li>
     <li>To protect against legal liability</li>
@@ -123,5 +123,5 @@
 <h2>Contact Us</h2>
 <p>If you have any questions about this Privacy Policy, please contact us:</p>
 <ul>
-  <li>By creating issue on our website: https://github.com/OntologyCommunityDevelopers/cyano-wallet/issues</li>
+  <li>By creating issue on our website: https://github.com/TesraSupernet/tesra-wallet/issues</li>
 </ul>

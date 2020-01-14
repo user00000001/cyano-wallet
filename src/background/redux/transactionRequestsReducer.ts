@@ -1,30 +1,30 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
-import { Identity } from 'ontology-ts-sdk';
 import { timeout, TimeoutError } from 'promise-timeout';
 import { Dispatch, Reducer } from 'redux';
+import { Identity } from 'tesrasdk-ts';
 import { getWallet } from '../../api/authApi';
 import Actions from '../../redux/actions';
 import { GlobalState } from '../../redux/state';
 import {
   ADD_TRANSACTION_REQUEST,
   MessageSignRequest,
-  RegisterOntIdRequest,
+  RegisterTstIdRequest,
   RESOLVE_TRANSACTION_REQUEST,
   ScCallReadRequest,
   ScCallRequest,
@@ -35,11 +35,11 @@ import {
   TransactionRequestsState,
   TransferRequest,
   UPDATE_REQUEST,
-  WithdrawOngRequest,
+  WithdrawTsgRequest,
 } from '../../redux/transactionRequests';
 import { messageSign } from '../api/messageApi';
 import { swapNep } from '../api/neoApi';
-import { registerOntId, transfer, withdrawOng } from '../api/runtimeApi';
+import { registerTstId, transfer, withdrawTsg } from '../api/runtimeApi';
 import { scCall, scCallRead, scDeploy } from '../api/smartContractApi';
 import { stateChannelLogin } from '../api/stateChannelApi';
 import { transferToken } from '../api/tokenApi';
@@ -99,14 +99,14 @@ export const transactionRequestsAliases = {
           case 'transfer':
             result = await submitTransfer(request as TransferRequest, password!);
             break;
-          case 'withdraw_ong':
-            result = await submitWithdrawOng(request as WithdrawOngRequest, password!);
+          case 'withdraw_tsg':
+            result = await submitWithdrawTsg(request as WithdrawTsgRequest, password!);
             break;
           case 'swap':
             result = await submitSwap(request as SwapRequest, password!);
             break;
-          case 'register_ont_id':
-            result = await submitRegisterOntId(request as RegisterOntIdRequest, password!, dispatch, state);
+          case 'register_tst_id':
+            result = await submitRegisterTstId(request as RegisterTstIdRequest, password!, dispatch, state);
             break;
           case 'sc_call':
             result = await submitScCall(request as ScCallRequest, password!, dispatch, state);
@@ -155,7 +155,7 @@ export const transactionRequestsAliases = {
 async function submitTransfer(request: TransferRequest, password: string) {
   let response: any;
 
-  if (request.asset === 'ONT' || request.asset === 'ONG') {
+  if (request.asset === 'TST' || request.asset === 'TSG') {
     response = await timeout(transfer(request, password), 15000);
   } else {
     response = await timeout(transferToken(request, password), 15000);
@@ -168,27 +168,27 @@ async function submitTransfer(request: TransferRequest, password: string) {
   return response.Result.TxHash;
 }
 
-function submitWithdrawOng(request: WithdrawOngRequest, password: string) {
-  return timeout(withdrawOng(request, password), 15000);
+function submitWithdrawTsg(request: WithdrawTsgRequest, password: string) {
+  return timeout(withdrawTsg(request, password), 15000);
 }
 
 function submitSwap(request: SwapRequest, password: string) {
   return timeout(swapNep(request, password), 15000);
 }
 
-async function submitRegisterOntId(
-  request: RegisterOntIdRequest,
+async function submitRegisterTstId(
+  request: RegisterTstIdRequest,
   password: string,
   dispatch: Dispatch,
   state: GlobalState,
 ) {
-  await timeout(registerOntId(request, password), 15000);
+  await timeout(registerTstId(request, password), 15000);
 
   // stores identity in wallet
   const identity = Identity.parseJson(request.identity);
   const wallet = getWallet(state.wallet.wallet!);
   wallet.addIdentity(identity);
-  wallet.setDefaultIdentity(identity.ontid);
+  wallet.setDefaultIdentity(identity.tstId);
 
   await dispatch(Actions.wallet.setWallet(wallet.toJson()));
 }
@@ -243,7 +243,7 @@ async function submitScCall(request: ScCallRequest, password: string, dispatch: 
       (element: any) => element.States,
     );
     return {
-      // Fixme: The Response of smartContract.invoke is {results: Result[], transaction: string} https://github.com/ontio/ontology-dapi/blob/master/src/api/types.ts
+      // Fixme: The Response of smartContract.invoke is {results: Result[], transaction: string} https://github.com/TesraSupernet/ontology-dapi/blob/master/src/api/types.ts
       results: notify,
       transaction: response.Result.TxHash,
     };

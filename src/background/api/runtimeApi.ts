@@ -1,34 +1,34 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { get } from 'lodash';
 import {
   CONST,
   Crypto,
   Identity,
-  OntAssetTxBuilder,
-  OntidContract,
   TransactionBuilder,
+  TstAssetTxBuilder,
+  TstidContract,
   TxSignature,
-} from 'ontology-ts-sdk';
+} from 'tesrasdk-ts';
 import { decryptAccount, getAccount } from '../../api/accountApi';
 import { getWallet } from '../../api/authApi';
 import { decryptIdentity } from '../../api/identityApi';
-import { RegisterOntIdRequest, TransferRequest, WithdrawOngRequest } from '../../redux/transactionRequests';
+import { RegisterTstIdRequest, TransferRequest, WithdrawTsgRequest } from '../../redux/transactionRequests';
 import Address = Crypto.Address;
 import { getClient } from '../network';
 import { getStore } from '../redux';
@@ -39,23 +39,23 @@ export async function getBalance() {
 
   const client = getClient();
   const response = await client.getBalance(address);
-  const ont: number = Number(get(response, 'Result.ont'));
-  const ong: number = Number(get(response, 'Result.ong'));
+  const tst: number = Number(get(response, 'Result.tst'));
+  const tsg: number = Number(get(response, 'Result.tsg'));
 
   return {
-    ong,
-    ont,
+    tsg,
+    tst,
   };
 }
 
-export async function getUnboundOng() {
+export async function getUnboundTsg() {
   const state = getStore().getState();
   const address = getAccount(state.wallet.wallet!).address;
 
   const client = getClient();
-  const response = await client.getUnboundong(address);
-  const unboundOng = Number(get(response, 'Result'));
-  return unboundOng;
+  const response = await client.getUnboundtsg(address);
+  const unboundTsg = Number(get(response, 'Result'));
+  return unboundTsg;
 }
 
 export async function transfer(request: TransferRequest, password: string) {
@@ -68,7 +68,7 @@ export async function transfer(request: TransferRequest, password: string) {
   const to = new Address(request.recipient);
   const amount = String(request.amount);
 
-  const tx = OntAssetTxBuilder.makeTransferTx(request.asset, from, to, amount, '500', `${CONST.DEFAULT_GAS_LIMIT}`);
+  const tx = TstAssetTxBuilder.makeTransferTx(request.asset, from, to, amount, '500', `${CONST.DEFAULT_GAS_LIMIT}`);
 
   await TransactionBuilder.signTransactionAsync(tx, privateKey);
 
@@ -76,7 +76,7 @@ export async function transfer(request: TransferRequest, password: string) {
   return await client.sendRawTransaction(tx.serialize(), false, true);
 }
 
-export async function withdrawOng(request: WithdrawOngRequest, password: string) {
+export async function withdrawTsg(request: WithdrawTsgRequest, password: string) {
   const state = getStore().getState();
   const wallet = getWallet(state.wallet.wallet!);
 
@@ -85,14 +85,14 @@ export async function withdrawOng(request: WithdrawOngRequest, password: string)
 
   const amount = String(request.amount);
 
-  const tx = OntAssetTxBuilder.makeWithdrawOngTx(from, from, amount, from, '500', `${CONST.DEFAULT_GAS_LIMIT}`);
+  const tx = TstAssetTxBuilder.makeWithdrawTsgTx(from, from, amount, from, '500', `${CONST.DEFAULT_GAS_LIMIT}`);
   await TransactionBuilder.signTransactionAsync(tx, privateKey);
 
   const client = getClient();
   await client.sendRawTransaction(tx.serialize(), false, true);
 }
 
-export async function registerOntId(request: RegisterOntIdRequest, password: string) {
+export async function registerTstId(request: RegisterTstIdRequest, password: string) {
   // const accountPassword: string = request.password;
   const accountPassword: string = password;
   const identityEncoded: string = request.identity;
@@ -107,7 +107,7 @@ export async function registerOntId(request: RegisterOntIdRequest, password: str
 
   const identityPublicKey = identityPrivateKey.getPublicKey();
 
-  const tx = OntidContract.buildRegisterOntidTx(identity.ontid, identityPublicKey, '500', `${CONST.DEFAULT_GAS_LIMIT}`);
+  const tx = TstidContract.buildRegisterTstidTx(identity.tstId, identityPublicKey, '500', `${CONST.DEFAULT_GAS_LIMIT}`);
 
   tx.payer = from;
   await TransactionBuilder.signTransactionAsync(tx, accountPrivateKey);
@@ -120,10 +120,10 @@ export async function registerOntId(request: RegisterOntIdRequest, password: str
   await client.sendRawTransaction(tx.serialize(), false, true);
 }
 
-export async function checkOntId(identity: Identity, password: string) {
-  const ontId = identity.ontid;
+export async function checkTstId(identity: Identity, password: string) {
+  const tstId = identity.tstId;
 
-  const tx = OntidContract.buildGetDDOTx(ontId);
+  const tx = TstidContract.buildGetDDOTx(tstId);
 
   const client = getClient();
   const result = await client.sendRawTransaction(tx.serialize(), true, false);

@@ -1,4 +1,4 @@
-# Cyano wallet - an Ontology wallet
+# Tesra wallet - an Tesra wallet
 
 <p>
   <img width="300px" src="/wallet.png">
@@ -7,7 +7,7 @@
 
 ## Overview
 
-WebExtension (a.k.a Chrome plugin) wallet for the **Ontology** blockchain compatible with Chrome and Firefox.
+WebExtension (a.k.a Chrome plugin) wallet for the **Tesra** blockchain compatible with Chrome and Firefox.
 
 ### What does it currently do
 
@@ -17,12 +17,12 @@ WebExtension (a.k.a Chrome plugin) wallet for the **Ontology** blockchain compat
 - Ledger support
 - Trezor support
 - View balance
-- Send ONG and ONT
-- Withdraw (claim) ONG
+- Send TSG and TST
+- Withdraw (claim) TSG
 - Switch networks (Test/Main/Private) with TLS support
-- ONT ID support
-- Ontology dAPI support
-- NEO and ONT address support for normal and Ledger accounts
+- TST ID support
+- Tesra dAPI support
+- NEO and TST address support for normal and Ledger accounts
 - Multi account and multi identity support
 
 ## Security
@@ -38,7 +38,7 @@ When using this extension be responsible. You can follow some of these security 
 
 ### Download
 
-Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/ontology-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm .
+Plugin is currently distributed in Chrome web store at https://chrome.google.com/webstore/detail/tesra-web-wallet/dkdedlpgdmmkkfjabffeganieamfklkm .
 
 ### Manual build
 
@@ -66,7 +66,7 @@ npm install --global yarn
 #### Download
 
 ```
-git clone 'https://github.com/OntologyCommunityDevelopers/cyano-wallet.git'
+git clone 'https://github.com/TesraSupernet/tesra-wallet.git'
 ```
 
 #### Start the extension in watch mode
@@ -87,19 +87,19 @@ yarn build
 
 #### Ledger support
 
-Ledger support is provided by the Ontology TS SDK extension https://github.com/OntologyCommunityDevelopers/ontology-ts-sdk-ledger. Because Chrome allows communication with the Ledger only from HTTPS loaded page (which extension is not), there is used a HTTPS iframe embedded. The iframe is hosted on https://drxwrxomfjdx5.cloudfront.net/forwarder.html and the source codes are at https://github.com/OntologyCommunityDevelopers/ledger-forwarder . To change the Iframe address navigate to index.tsx and change the call to
+Ledger support is provided by the Tesra TS SDK extension https://github.com/TesraSupernet/tesrasdk-ts-ledger. Because Chrome allows communication with the Ledger only from HTTPS loaded page (which extension is not), there is used a HTTPS iframe embedded. The iframe is hosted on https://drxwrxomfjdx5.cloudfront.net/forwarder.html and the source codes are at https://github.com/TesraSupernet/ledger-forwarder . To change the Iframe address navigate to index.tsx and change the call to
 
 ```
 Ledger.setLedgerTransport(new Ledger.LedgerTransportIframe('https://drxwrxomfjdx5.cloudfront.net/forwarder.html', true));
 ```
 
-To use your Ledger, you also needs Official Ontology Ledger App installed on your Ledger.
+To use your Ledger, you also needs Official Tesra Ledger App installed on your Ledger.
 
 #### Trezor support
 
-Trezor support is provided by the Ontology TS SDK extension https://github.com/OntologyCommunityDevelopers/ontology-ts-sdk-trezor. Trezor allows communication with the Trezor Bridge v2 only from https://*.trezor.io page and Node environment, therefore it is not usable from web pages. But it is usable from Web extensions using WebRequest API.
+Trezor support is provided by the Tesra TS SDK extension https://github.com/TesraSupernet/tesrasdk-ts-trezor. Trezor allows communication with the Trezor Bridge v2 only from https://*.trezor.io page and Node environment, therefore it is not usable from web pages. But it is usable from Web extensions using WebRequest API.
 
-To use your Trezor, you also needs custom firmware located at https://github.com/backslash47/trezor-core . Ontology support is is not yet in official firmware.
+To use your Trezor, you also needs custom firmware located at https://github.com/user00000001/trezor-core . Tesra support is is not yet in official firmware.
 
 ## Built With
 
@@ -107,11 +107,11 @@ To use your Trezor, you also needs custom firmware located at https://github.com
 - [Node.js](https://nodejs.org) - JavaScript runtime for building and ingest
 - [React](https://reactjs.org/) - The web framework used
 - [Semantic UI](https://react.semantic-ui.com/introduction) - The web framework used
-- [Ontology TypeScript SDK](https://github.com/ontio/ontology-ts-sdk) - The framework used
+- [Tesra TypeScript SDK](https://github.com/TesraSupernet/tesrasdk-ts) - The framework used
 
 ## Authors
 
-- **Matus Zamborsky** - _Initial work_ - [Backslash47](https://github.com/backslash47)
+- **user00000001** - _Initial work_ - [user00000001](https://github.com/user00000001)
 
 ## License
 
@@ -125,8 +125,8 @@ To see detailed privacy policy of this project visit [PRIVACY.md](PRIVACY.md)
 
 ## Acknowledgments
 
-Many thanks to the whole Ontology team, who done a great job bringing Ontology to life.
+Many thanks to the whole TesraSupernet team, who done a great job bringing Tesra to life.
 
 ## Donations
 
-Donations greatly appreciated and ONT/ONG can be sent to: AcqSLx1nSLy9uvVDPrWdNJgwNPfA8UUM4H
+Donations greatly appreciated and TST/TSG can be sent to: AcqSLx1nSLy9uvVDPrWdNJgwNPfA8UUM4H

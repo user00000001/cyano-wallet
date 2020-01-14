@@ -1,23 +1,23 @@
 /*
- * Copyright (C) 2018 Matus Zamborsky
- * This file is part of The Ontology Wallet&ID.
+ * Copyright (C) 2019-2020 user00000001
+ * This file is part of The TesraSupernet TWallet&ID.
  *
- * The The Ontology Wallet&ID is free software: you can redistribute it and/or modify
+ * The The TesraSupernet TWallet&ID is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * The Ontology Wallet&ID is distributed in the hope that it will be useful,
+ * The TesraSupernet TWallet&ID is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with The Ontology Wallet&ID.  If not, see <http://www.gnu.org/licenses/>.
+ * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { get } from 'lodash';
 import { Reader } from 'ontology-ts-crypto';
-import { Account, Crypto, utils, Wallet } from 'ontology-ts-sdk';
+import { Account, Crypto, TWallet, utils } from 'tesrasdk-ts';
 import { v4 as uuid } from 'uuid';
 import PrivateKey = Crypto.PrivateKey;
 import KeyParameters = Crypto.KeyParameters;
@@ -25,7 +25,7 @@ import KeyType = Crypto.KeyType;
 import CurveLabel = Crypto.CurveLabel;
 import { getWallet } from './authApi';
 
-export function decryptAccount(wallet: Wallet, password: string) {
+export function decryptAccount(wallet: TWallet, password: string) {
   const account = getAccount(wallet);
   const saltHex = Buffer.from(account.salt, 'base64').toString('hex');
   const encryptedKey = account.encryptedKey;
@@ -39,7 +39,7 @@ export function decryptAccount(wallet: Wallet, password: string) {
   });
 }
 
-export function accountSignUp(password: string, neo: boolean, wallet: string | Wallet | null) {
+export function accountSignUp(password: string, neo: boolean, wallet: string | TWallet | null) {
   const mnemonics = utils.generateMnemonic(32);
   return accountImportMnemonics(mnemonics, password, neo, wallet);
 }
@@ -48,7 +48,7 @@ export function accountImportMnemonics(
   mnemonics: string,
   password: string,
   neo: boolean,
-  wallet: string | Wallet | null,
+  wallet: string | TWallet | null,
 ) {
   const bip32Path = neo ? "m/44'/888'/0'/0/0" : "m/44'/1024'/0'/0/0";
   const privateKey = PrivateKey.generateFromMnemonic(mnemonics, bip32Path);
@@ -62,9 +62,9 @@ export function accountImportMnemonics(
   };
 }
 
-export function accountImportPrivateKey(privateKeyStr: string, password: string, wallet: string | Wallet | null) {
+export function accountImportPrivateKey(privateKeyStr: string, password: string, wallet: string | TWallet | null) {
   if (wallet === null) {
-    wallet = Wallet.create(uuid());
+    wallet = TWallet.create(uuid());
   } else if (typeof wallet === 'string') {
     wallet = getWallet(wallet);
   }
@@ -97,7 +97,7 @@ export function accountImportPrivateKey(privateKeyStr: string, password: string,
   };
 }
 
-export function accountDelete(address: string, wallet: string | Wallet) {
+export function accountDelete(address: string, wallet: string | TWallet) {
   if (typeof wallet === 'string') {
     wallet = getWallet(wallet);
   }
@@ -117,7 +117,7 @@ export function accountDelete(address: string, wallet: string | Wallet) {
   };
 }
 
-export function getAccount(wallet: string | Wallet) {
+export function getAccount(wallet: string | TWallet) {
   if (typeof wallet === 'string') {
     wallet = getWallet(wallet);
   }
@@ -136,7 +136,7 @@ export function getAccount(wallet: string | Wallet) {
   }
 }
 
-export function getAddress(wallet: string | Wallet) {
+export function getAddress(wallet: string | TWallet) {
   const account = getAccount(wallet);
   return account.address.toBase58();
 }
@@ -152,7 +152,7 @@ export function getPublicKey(walletEncoded: string) {
   }
 }
 
-export function isLedgerKey(wallet: Wallet) {
+export function isLedgerKey(wallet: TWallet) {
   return get(getAccount(wallet).encryptedKey, 'type') === 'LEDGER';
 }
 
