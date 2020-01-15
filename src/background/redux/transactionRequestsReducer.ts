@@ -243,7 +243,7 @@ async function submitScCall(request: ScCallRequest, password: string, dispatch: 
       (element: any) => element.States,
     );
     return {
-      // Fixme: The Response of smartContract.invoke is {results: Result[], transaction: string} https://github.com/TesraSupernet/ontology-dapi/blob/master/src/api/types.ts
+      // Fixme: The Response of smartContract.invoke is {results: Result[], transaction: string} https://github.com/TesraSupernet/tesra-dapi/blob/master/src/api/types.ts
       results: notify,
       transaction: response.Result.TxHash,
     };

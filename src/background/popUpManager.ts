@@ -55,7 +55,7 @@ export class PopupManager {
     this.rpc.register('popup_initialized', this.pupupInitialized.bind(this));
     this.rpc.register('check_account_password', this.checkAccountPassword.bind(this));
     this.rpc.register('check_identity_password', this.checkIdentityPassword.bind(this));
-    this.rpc.register('check_ont_id', this.checkTstId.bind(this));
+    this.rpc.register('check_tst_id', this.checkTstId.bind(this));
     this.rpc.register('get_oep4_token', this.getOEP4Token.bind(this));
     this.rpc.register('is_ledger_supported', this.isLedgerSupported.bind(this));
     this.rpc.register('import_ledger_key', this.importLedgerKey.bind(this));

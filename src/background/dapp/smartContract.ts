@@ -1,5 +1,5 @@
-import { Hash } from 'ontology-ts-crypto';
 import { Response, SmartContractApi } from 'tesra-dapi';
+import { Hash } from 'tesra-ts-crypto';
 
 import { getRequestsManager } from '../requestsManager';
 

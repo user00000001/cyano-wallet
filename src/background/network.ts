@@ -104,10 +104,10 @@ export function getExplorerAddress(): string | null {
     return null;
   } else if (settings.net === 'MAIN') {
     return '121.41.17.61:25771';
-    // return 'explorer.ont.io';
+    // return 'explorer.tesra.me';
   } else if (settings.net === 'TEST') {
     return '121.41.17.61:25771';
-    // return 'polarisexplorer.ont.io';
+    // return 'explorer2.tesra.me';
   } else {
     return null;
   }
@@ -150,5 +150,5 @@ function isTestAddress(address: string) {
 }
 
 export function getNeoNodeAddress(): string {
-  return 'http://neonode1.ont.network:10332';
+  return 'http://dapp1.tesra.me:25770';
 }

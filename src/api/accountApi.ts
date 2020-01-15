@@ -16,7 +16,7 @@
  * along with The TesraSupernet TWallet&ID.  If not, see <http://www.gnu.org/licenses/>.
  */
 import { get } from 'lodash';
-import { Reader } from 'ontology-ts-crypto';
+import { Reader } from 'tesra-ts-crypto';
 import { Account, Crypto, TWallet, utils } from 'tesrasdk-ts';
 import { v4 as uuid } from 'uuid';
 import PrivateKey = Crypto.PrivateKey;
