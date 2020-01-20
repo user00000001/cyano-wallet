@@ -1,18 +1,30 @@
 export const testOptions: Array<{ text: string; value: string }> = [
   {
-    text: "121.41.17.61:25571",
-    value: "121.41.17.61:25571",
+    text: "dapp3.tesra.me",
+    value: "dapp3.tesra.me:25771",
   },
   {
-    text: "localhost:25571",
-    value: "localhost:25571",
+    text: "dapp4.tesra.me",
+    value: "dapp4.tesra.me:25771",
+  },
+  {
+    text: "localhost:25771",
+    value: "localhost:25771",
   }
 ];
 
 export const prodOptions: Array<{ text: string; value: string }> = [
   {
-    text: "121.41.17.61:25771",
-    value: "121.41.17.61:25771",
+    text: "explorer.tesra.me",
+    value: "explorer.tesra.me:25771",
+  },
+  {
+    text: "dapp1.tesra.me",
+    value: "dapp1.tesra.me:25771",
+  },
+  {
+    text: "dapp2.tesra.me",
+    value: "dapp2.tesra.me:25771",
   },
   {
     text: "localhost:25771",

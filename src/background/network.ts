@@ -103,11 +103,9 @@ export function getExplorerAddress(): string | null {
   if (settings === null) {
     return null;
   } else if (settings.net === 'MAIN') {
-    return '121.41.17.61:25771';
-    // return 'explorer.tesra.me';
+    return 'explorer.tesra.me:25771';
   } else if (settings.net === 'TEST') {
-    return '121.41.17.61:25771';
-    // return 'explorer2.tesra.me';
+    return 'explorer2.tesra.me:25771';
   } else {
     return null;
   }

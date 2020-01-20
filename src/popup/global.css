@@ -52,7 +52,7 @@ body {
   color: #32a4be;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .ui.message .header,
@@ -70,7 +70,7 @@ body {
   color: #32a4be;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .ui.list .list > .item .header,

@@ -75,7 +75,7 @@ const enhancer = (Component: React.ComponentType<Props>) => (props: RouterProps)
               setState({ importError: false });
 
               const blob = new Blob([reduxProps.wallet!], { type: 'text/plain;charset=utf-8' });
-              FileSaver.saveAs(blob, 'wallet.dat');
+              FileSaver.saveAs(blob, 'twallet.dat');
             },
             handleImport: async (event: React.SyntheticEvent<{}>, results: FileReaderInput.Result[]) => {
               setState({ importError: false });

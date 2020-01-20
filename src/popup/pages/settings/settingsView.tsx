@@ -107,10 +107,8 @@ export const SettingsView: React.SFC<Props> = (props) => (
                         render={(t) => (
                           <SemanticForm.Input
                             onChange={t.input.onChange}
-                            value={t.input.value}
-                            placeholder="localhost:25771"
-                            // placeholder="121.41.17.61:25771"
-                            // placeholder="dapp1.tesra.me"
+                            value={t.input.value ? t.input.value : "localhost:25771"}
+                            // placeholder="localhost:25771"
                             error={t.meta.touched && t.meta.invalid}
                           />
                         )}
