@@ -33,7 +33,7 @@ export const TrezorLogoView: React.SFC<Props> = (props) => (
         <Button onClick={props.handleSettings} size="big" compact={true} basic={true} icon="cog" />
       </View>
     </View>
-    <h1 className="header">Cyano Wallet</h1>
-    <p className="subtitle">an Tesra wallet</p>
+    <h1 className="header">Tesra Wallet</h1>
+    <p className="subtitle">an TesraSupernet wallet</p>
   </View>
 );

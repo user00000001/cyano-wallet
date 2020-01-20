@@ -1,4 +1,4 @@
-# Tesra wallet - an Tesra wallet
+# Tesra wallet - an TesraSupernet wallet
 
 <p>
   <img width="300px" src="/wallet.png">
